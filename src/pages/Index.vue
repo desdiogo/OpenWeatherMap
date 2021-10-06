@@ -134,7 +134,7 @@ export default defineComponent({
       weatherData: false,
       lat: 0,
       lon: 0,
-      apiKey: process.env.API_KEY
+      apiKey: '9e0db409583831e2bfe20e7d544c63bf'
     })
 
     // eslint-disable-next-line vue/return-in-computed-property
