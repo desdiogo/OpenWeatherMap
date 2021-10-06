@@ -121,6 +121,7 @@
 <script>
 import { defineComponent, reactive, computed } from 'vue'
 import { api } from 'boot/axios'
+import { notify } from 'src/services/notify'
 import { useQuasar } from 'quasar'
 
 export default defineComponent({
@@ -188,6 +189,9 @@ export default defineComponent({
       api(`weather?q=${state.search}&lang=pt_br&appid=${state.apiKey}`)
         .then((response) => {
           state.weatherData = response.data
+        })
+        .catch(() => {
+          notify('A cidade não foi localizada', 'negative')
         })
         .finally(() => {
           state.search = ''
